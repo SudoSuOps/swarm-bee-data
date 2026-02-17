@@ -1,0 +1,7 @@
+name = "swarm-bee-data"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "./"
+
+[[r2_buckets]]
+binding = "DATA_VAULT"
+bucket_name = "swarm-data-vault"

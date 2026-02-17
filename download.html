@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download — Swarm &amp; Bee</title>
+  <link rel="icon" type="image/svg+xml" href="https://swarmandbee.com/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #080808;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #aaa;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    ::selection { background: rgba(180,160,220,0.15); }
+    a { color: #ccc; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #fff; }
+
+    .wrapper {
+      max-width: 520px;
+      width: 100%;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .firm {
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #777; margin-bottom: 2.4rem;
+    }
+    .firm a { color: #555; }
+    .firm a:hover { color: #aaa; }
+
+    h1 {
+      font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 300;
+      letter-spacing: 0.06em; color: #f0f0f0; margin-bottom: 1rem;
+    }
+
+    .status-msg {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .download-btn {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #080808;
+      background: #b8a0e0;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.4s ease;
+      margin-bottom: 1rem;
+    }
+    .download-btn:hover { background: #c8b0f0; color: #080808; }
+    .download-btn:disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #333;
+      border-top-color: #b8a0e0;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .note {
+      font-size: 0.7rem;
+      color: #666;
+      margin-top: 1.4rem;
+      line-height: 1.7;
+    }
+
+    .error-box {
+      background: #1a0a0a;
+      border: 1px solid #2a1515;
+      padding: 1.4rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.8rem;
+      color: #d88;
+    }
+
+    .success-box {
+      background: #0a1a0a;
+      border: 1px solid #152a15;
+      padding: 1.4rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.8rem;
+      color: #8d8;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      color: #666;
+      border: 1px solid #222;
+      padding: 0.5rem 1.4rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .back-link:hover { color: #aaa; border-color: #444; }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.65rem;
+      color: #444;
+    }
+    .footer a { color: #555; }
+    .footer a:hover { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <p class="firm"><a href="https://swarmandbee.com">Swarm &amp; Bee</a></p>
+
+  <div id="state-verifying">
+    <h1>Verifying Purchase</h1>
+    <p class="status-msg"><span class="spinner"></span> Confirming your payment with Stripe...</p>
+  </div>
+
+  <div id="state-ready" style="display:none;">
+    <h1>Thank You</h1>
+    <div class="success-box">Payment confirmed. Your download is ready.</div>
+    <p class="status-msg" id="product-name"></p>
+    <a class="download-btn" id="download-link" href="#">Download</a>
+    <p class="note">Your download link is tied to this purchase session.<br>Bookmark this page to re-download within 24 hours.</p>
+  </div>
+
+  <div id="state-error" style="display:none;">
+    <h1>Something Went Wrong</h1>
+    <div class="error-box" id="error-msg">We couldn't verify your purchase.</div>
+    <p class="status-msg">If you believe this is an error, please contact us at <a href="mailto:data@swarmandbee.com">data@swarmandbee.com</a> with your Stripe receipt.</p>
+  </div>
+
+  <a class="back-link" href="/">Back to Store</a>
+
+  <div class="footer">
+    <p>&copy; 2026 <a href="https://swarmandbee.com">Swarm &amp; Bee</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a></p>
+  </div>
+</div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id');
+  var product = params.get('product');
+
+  var stateVerifying = document.getElementById('state-verifying');
+  var stateReady = document.getElementById('state-ready');
+  var stateError = document.getElementById('state-error');
+  var errorMsg = document.getElementById('error-msg');
+  var productName = document.getElementById('product-name');
+  var downloadLink = document.getElementById('download-link');
+
+  var PRODUCT_NAMES = {
+    'platinum-sample-pack': 'Platinum Sample Pack',
+    'specialty-cardiology': 'Specialty — Cardiology',
+    'specialty-radiology-mri': 'Specialty — Radiology & MRI',
+    'specialty-emergency-medicine': 'Specialty — Emergency Medicine',
+    'specialty-psychiatry': 'Specialty — Psychiatry',
+    'specialty-pharmacology': 'Specialty — Pharmacology & Drug Safety',
+    'specialty-oncology': 'Specialty — Oncology',
+    'specialty-neurology': 'Specialty — Neurology',
+    'specialty-pediatrics': 'Specialty — Pediatrics',
+    'specialty-womens-health': 'Specialty — Women\'s Health',
+    'full-platinum-vault': 'Full Platinum Vault',
+    'enterprise-annual': 'Enterprise — Vault + Quarterly Updates',
+  };
+
+  if (!sessionId || !product) {
+    stateVerifying.style.display = 'none';
+    stateError.style.display = 'block';
+    errorMsg.textContent = 'Missing purchase session or product identifier.';
+    return;
+  }
+
+  // Build the download URL (the /api/download function verifies with Stripe)
+  var downloadUrl = '/api/download?session_id=' + encodeURIComponent(sessionId)
+    + '&product=' + encodeURIComponent(product);
+
+  // Verify by hitting the download endpoint with a HEAD request first
+  fetch(downloadUrl, { method: 'HEAD' })
+    .then(function(res) {
+      if (res.ok) {
+        stateVerifying.style.display = 'none';
+        stateReady.style.display = 'block';
+        productName.textContent = PRODUCT_NAMES[product] || product;
+        downloadLink.href = downloadUrl;
+
+        // Auto-start download after 1.5s
+        setTimeout(function() {
+          window.location.href = downloadUrl;
+        }, 1500);
+      } else {
+        return res.json().then(function(data) {
+          stateVerifying.style.display = 'none';
+          stateError.style.display = 'block';
+          errorMsg.textContent = data.error || 'Verification failed. Status: ' + res.status;
+        });
+      }
+    })
+    .catch(function(err) {
+      stateVerifying.style.display = 'none';
+      stateError.style.display = 'block';
+      errorMsg.textContent = 'Network error verifying purchase. Please try again.';
+    });
+})();
+</script>
+
+</body>
+</html>
