@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /download.html
+
+Sitemap: https://data.swarmandbee.com/sitemap.xml

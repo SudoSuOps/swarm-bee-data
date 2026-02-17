@@ -9,6 +9,14 @@
   <meta property="og:description" content="CoVe-verified medical training data. 128x RTX 6000 Pro Blackwell GPUs. Sovereign compute infrastructure.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://data.swarmandbee.com">
+  <link rel="canonical" href="https://data.swarmandbee.com">
+  <meta name="keywords" content="medical training data, platinum QA pairs, CoVe verification, medical AI dataset, fine-tuning data, JSONL, radiology training data, clinical QA, 235B verification">
+  <meta property="og:image" content="https://swarmandbee.com/og-image.png">
+  <meta property="og:site_name" content="Swarm & Bee">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Platinum Data & Sovereign Compute — Swarm & Bee">
+  <meta name="twitter:description" content="CoVe-verified medical training data. 235B parameter verification. 79% reject rate. Platinum or rejected.">
+  <meta name="twitter:image" content="https://swarmandbee.com/og-image.png">
   <link rel="icon" type="image/svg+xml" href="https://swarmandbee.com/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1220,6 +1228,137 @@
 
 </div>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Swarm & Bee",
+      "url": "https://swarmandbee.com",
+      "logo": "https://swarmandbee.com/og-image.png",
+      "description": "Sovereign compute infrastructure and CoVe-verified medical training data. Last mile intelligence.",
+      "email": "data@swarmandbee.com",
+      "sameAs": [
+        "https://huggingface.co/SwarmOS"
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Platinum Medical Training Data",
+      "description": "CoVe-verified medical QA pairs for machine learning fine-tuning. Every claim independently fact-checked by a 235B parameter model. 14 medical specialties. JSONL format with train/val/test splits.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Swarm & Bee"
+      },
+      "category": "Medical AI Training Data",
+      "url": "https://data.swarmandbee.com",
+      "image": "https://swarmandbee.com/og-image.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Platinum Sample Pack",
+          "price": "4.99",
+          "priceCurrency": "USD",
+          "description": "100 platinum QA pairs across 8+ specialties. JSONL format with train/val/test splits.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        },
+        {
+          "@type": "Offer",
+          "name": "Specialty Pack — Cardiology",
+          "price": "19.99",
+          "priceCurrency": "USD",
+          "description": "500+ platinum cardiology QA pairs. ACS protocols, heart failure GDMT, arrhythmia management.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        },
+        {
+          "@type": "Offer",
+          "name": "Specialty Pack — Radiology & MRI",
+          "price": "29.99",
+          "priceCurrency": "USD",
+          "description": "2,500+ platinum MRI/radiology QA pairs. Neuroradiology findings, structured reporting.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        },
+        {
+          "@type": "Offer",
+          "name": "Builder Bundle — Pick 3 Specialties",
+          "price": "49.99",
+          "priceCurrency": "USD",
+          "description": "Choose any 3 specialty packs. 1,500+ platinum pairs with train/val/test splits.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full Platinum Vault",
+          "price": "149.99",
+          "priceCurrency": "USD",
+          "description": "10,000+ CoVe-verified medical QA pairs across 14 specialties. Complete dataset with splits.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise — Vault + Quarterly Updates",
+          "price": "499.99",
+          "priceCurrency": "USD",
+          "description": "Full vault plus quarterly dataset drops. Volume licensing up to 10 seats. Direct support channel.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://data.swarmandbee.com"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is CoVe verification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chain-of-Verification is a three-step process from Meta AI research. For every claim in every answer, our pipeline: (1) Plans verification questions, (2) Executes those questions against a 235B parameter model, (3) Compares the verified answers with the original claims. If any claim fails, the pair is either rewritten with verified facts by the 235B model or rejected entirely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What format is the data in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JSONL (one JSON object per line). Each pair has: id, question, answer, specialty, source, and verification metadata. Every product includes the full dataset plus 80/10/10 train/val/test splits. Compatible with TRL, Axolotl, Unsloth, and any other fine-tuning framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is 79% of raw content rejected?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small language models hallucinate. Especially in pharmacology — fabricated drug dosages, invented contraindications, wrong interaction mechanisms. Our CoVe pipeline catches all of it. The 21% that survives has every factual claim independently verified. That's what makes it platinum."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this commercially?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All products include a commercial use license. Fine-tune models, build products, deploy in production. Attribution appreciated but not required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from open medical datasets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Verification. Most medical QA datasets are generated and published without claim-level fact-checking. Ours runs 3 LLM calls per claim through a 235B verifier. The result is training data you can trust for clinical applications where hallucinated information is not just wrong — it's dangerous."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </body>
 </html>
