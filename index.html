@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platinum Data — Swarm &amp; Bee</title>
+  <meta name="description" content="CoVe-verified medical training data. Every claim fact-checked by 235B. Platinum-grade QA pairs for fine-tuning clinical AI models.">
+  <meta property="og:title" content="Platinum Data — Swarm & Bee">
+  <meta property="og:description" content="CoVe-verified medical training data. Every claim fact-checked by 235B.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://data.swarmandbee.com">
+  <link rel="icon" type="image/svg+xml" href="https://swarmandbee.com/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #080808;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #888;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: rgba(180,160,220,0.15); }
+
+    a { color: #888; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #e0e0e0; }
+
+    /* ── Layout ── */
+
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    /* ── Header ── */
+
+    .header { margin-bottom: 5rem; }
+
+    .firm {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 2.4rem;
+    }
+    .firm a { color: #444; }
+    .firm a:hover { color: #888; }
+
+    .vault-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: #e0e0e0;
+      margin-bottom: 1.2rem;
+    }
+
+    .vault-sub {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #666;
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* ── Dividers ── */
+
+    .rule { width: 40px; height: 1px; background: #222; margin: 3.5rem 0; }
+    .rule-full { width: 100%; height: 1px; background: #151515; margin: 2.5rem 0; }
+
+    /* ── Section Labels ── */
+
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Pipeline ── */
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      margin-top: 1.4rem;
+    }
+
+    .step {
+      text-align: center;
+      padding: 1rem 0.4rem;
+      position: relative;
+    }
+
+    .step::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      right: -2px;
+      width: 4px;
+      height: 1px;
+      background: #333;
+    }
+    .step:last-child::after { display: none; }
+
+    .step-num { font-size: 0.5rem; color: #333; margin-bottom: 0.4rem; }
+    .step-label {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    /* ── Trust Signals ── */
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin-top: 1.4rem;
+    }
+
+    .trust-item {
+      background: #0a0a0a;
+      padding: 1.4rem;
+      text-align: center;
+    }
+
+    .trust-value {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #e0e0e0;
+      margin-bottom: 0.4rem;
+    }
+
+    .trust-value .plat { color: #b8a0e0; }
+
+    .trust-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    /* ── Products ── */
+
+    .product {
+      margin-bottom: 2.8rem;
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      letter-spacing: 0.02em;
+    }
+
+    .product-price {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #b8a0e0;
+      letter-spacing: 0.05em;
+    }
+
+    .product-desc {
+      font-size: 0.78rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-meta {
+      font-size: 0.72rem;
+      color: #555;
+      line-height: 1.9;
+    }
+
+    .product-meta span {
+      display: inline-block;
+      margin-right: 1.6em;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid #1a1a1a;
+      color: #666;
+      margin-right: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag-plat { border-color: #2a1a3a; color: #8a6ab0; }
+    .tag-cove { border-color: #1a2a2a; color: #4a8a8a; }
+    .tag-new { border-color: #1a2a1a; color: #4a8a4a; }
+
+    .buy-row {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e0e0e0;
+      background: none;
+      border: 1px solid #333;
+      padding: 0.6rem 1.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.4s ease;
+    }
+
+    .buy-btn:hover {
+      color: #fff;
+      border-color: #b8a0e0;
+      background: rgba(184,160,224,0.06);
+    }
+
+    .buy-note {
+      font-size: 0.65rem;
+      color: #444;
+    }
+
+    /* ── Sample Pair ── */
+
+    .sample-block {
+      background: #0c0c0c;
+      border: 1px solid #151515;
+      padding: 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .sample-domain {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .sample-q {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .sample-a {
+      font-size: 0.8rem;
+      color: #bbb;
+      line-height: 1.8;
+      border-left: 1px solid #222;
+      padding-left: 1rem;
+    }
+
+    .sample-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8a6ab0;
+      border: 1px solid #2a1a3a;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── Specialty Grid ── */
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin-top: 1.4rem;
+    }
+
+    .spec-item {
+      background: #0a0a0a;
+      padding: 1.2rem;
+    }
+
+    .spec-name {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 0.3rem;
+    }
+
+    .spec-detail {
+      font-size: 0.62rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+
+    .faq-item { margin-bottom: 2rem; }
+
+    .faq-q {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-a {
+      font-size: 0.78rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* ── CTA ── */
+
+    .cta { margin-top: 4rem; text-align: center; }
+
+    .cta-btn {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e0e0e0;
+      background: none;
+      border: 1px solid #333;
+      padding: 0.8rem 2.4rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.4s ease;
+    }
+
+    .cta-btn:hover {
+      color: #fff;
+      border-color: #b8a0e0;
+      background: rgba(184,160,224,0.06);
+    }
+
+    .cta-note {
+      font-size: 0.68rem;
+      color: #444;
+      margin-top: 1rem;
+    }
+
+    /* ── Footer ── */
+
+    .footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #111;
+      text-align: center;
+      font-size: 0.68rem;
+      color: #333;
+    }
+    .footer a { color: #444; }
+    .footer a:hover { color: #888; }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 640px) {
+      .wrapper { padding: 4rem 1.4rem 3rem; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .product-header { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header class="header">
+    <p class="firm"><a href="https://swarmandbee.com">Swarm &amp; Bee</a></p>
+    <h1 class="vault-title">Platinum Data</h1>
+    <p class="vault-sub">CoVe-verified medical training data. Every claim independently fact-checked by a 235-billion parameter model. No hallucinated dosing. No fabricated guidelines. Platinum or rejected &mdash; nothing in between.</p>
+  </header>
+
+  <div class="rule"></div>
+
+  <!-- Pipeline -->
+  <section class="process">
+    <p class="section-label">Verification Pipeline</p>
+    <div class="process-steps">
+      <div class="step">
+        <p class="step-num">01</p>
+        <p class="step-label">Harvest</p>
+      </div>
+      <div class="step">
+        <p class="step-num">02</p>
+        <p class="step-label">Stage</p>
+      </div>
+      <div class="step">
+        <p class="step-num">03</p>
+        <p class="step-label">Plan</p>
+      </div>
+      <div class="step">
+        <p class="step-num">04</p>
+        <p class="step-label">Execute</p>
+      </div>
+      <div class="step">
+        <p class="step-num">05</p>
+        <p class="step-label">Compare</p>
+      </div>
+      <div class="step">
+        <p class="step-num">06</p>
+        <p class="step-label">Deliver</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Trust Signals -->
+  <section>
+    <p class="section-label">The Numbers</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <p class="trust-value"><span class="plat">235B</span></p>
+        <p class="trust-label">Verifier Model</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">3</p>
+        <p class="trust-label">LLM Calls / Claim</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">14</p>
+        <p class="trust-label">Specialties</p>
+      </div>
+    </div>
+    <div class="trust-grid" style="margin-top:1px;">
+      <div class="trust-item">
+        <p class="trust-value">10K+</p>
+        <p class="trust-label">Platinum Pairs</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">79%</p>
+        <p class="trust-label">Raw Reject Rate</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">0%</p>
+        <p class="trust-label">Hallucinated Doses</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Sample Pair -->
+  <section>
+    <p class="section-label">Sample Platinum Pair</p>
+    <div class="sample-block">
+      <p class="sample-domain">Cardiology &mdash; Acute Coronary Syndrome</p>
+      <p class="sample-q"><strong>Q:</strong> A 62-year-old male presents with substernal chest pressure radiating to the left arm for 45 minutes. ECG shows ST-elevation in leads II, III, and aVF. Troponin I is 2.4 ng/mL. BP 138/82, HR 88. What is the immediate management approach, and what are the key pharmacotherapy decisions in the first 24 hours?</p>
+      <div class="sample-a">
+        <strong>A:</strong> This presentation is consistent with an inferior STEMI. Immediate management includes activating the cardiac catheterization lab for primary PCI (target door-to-balloon time &lt;90 minutes). Administer aspirin 325mg chewable, ticagrelor 180mg loading dose (or clopidogrel 600mg if ticagrelor is contraindicated), and unfractionated heparin 60 U/kg bolus (max 4000 U). Sublingual nitroglycerin for ongoing pain, with caution given inferior MI (monitor for right ventricular involvement and hypotension). Morphine for refractory pain only. Post-PCI: dual antiplatelet therapy for 12 months, high-intensity statin (atorvastatin 80mg), beta-blocker (metoprolol tartrate 25mg BID titrated to HR goal), and ACE inhibitor (lisinopril 2.5&ndash;5mg daily) once hemodynamically stable. Echocardiography within 24&ndash;48 hours to assess LV function. <em>This response is for educational purposes. All clinical decisions should be made by qualified healthcare providers based on individual patient assessment.</em>
+      </div>
+      <span class="sample-badge">CoVe Verified &middot; 235B &middot; Platinum</span>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Products -->
+  <section>
+    <p class="section-label">Products</p>
+
+    <!-- Sample Pack -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Platinum Sample Pack</span>
+        <span class="product-price">$4.99</span>
+      </div>
+      <p class="product-desc">100 platinum QA pairs across 8+ specialties. See the quality before you commit. Every pair CoVe-verified. JSONL format with train/val/test splits.</p>
+      <p class="product-meta">
+        <span>100 pairs</span>
+        <span>Multi-specialty</span>
+        <span>JSONL + splits</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag tag-cove">CoVe Verified</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="sample">Buy Now</a>
+        <span class="buy-note">Instant download after purchase</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Cardiology -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Specialty &mdash; Cardiology</span>
+        <span class="product-price">$19.99</span>
+      </div>
+      <p class="product-desc">500+ platinum cardiology QA pairs. ACS protocols, heart failure GDMT, arrhythmia management, valvular disease, risk stratification. 5-dimension specialty accuracy rubric: dosing, contraindications, guidelines, risk scores, GDMT adherence.</p>
+      <p class="product-meta">
+        <span>500+ pairs</span>
+        <span>ACC/AHA guidelines</span>
+        <span>Dosing verified</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag">ACS</span>
+      <span class="tag">Heart Failure</span>
+      <span class="tag">Arrhythmia</span>
+      <span class="tag">GDMT</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="cardiology">Buy Now</a>
+        <span class="buy-note">Instant download</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Radiology -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Specialty &mdash; Radiology &amp; MRI</span>
+        <span class="product-price">$29.99</span>
+      </div>
+      <p class="product-desc">2,500+ platinum MRI/radiology QA pairs. Neuroradiology findings, structured reporting, differential diagnoses. CoVe-verified against RSNA reporting standards. The largest platinum radiology training dataset available.</p>
+      <p class="product-meta">
+        <span>2,500+ pairs</span>
+        <span>RSNA concordant</span>
+        <span>Vision-language pipeline</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag">Neuroradiology</span>
+      <span class="tag">Structured Reporting</span>
+      <span class="tag">Brain + Spine</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="radiology">Buy Now</a>
+        <span class="buy-note">Instant download</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Emergency Medicine -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Specialty &mdash; Emergency Medicine</span>
+        <span class="product-price">$19.99</span>
+      </div>
+      <p class="product-desc">500+ platinum EM QA pairs. Trauma assessment, cardiac arrest algorithms, stroke codes, toxicology, pediatric emergencies. Time-critical clinical decision support data.</p>
+      <p class="product-meta">
+        <span>500+ pairs</span>
+        <span>ACLS/ATLS aligned</span>
+        <span>Dosing verified</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag">Trauma</span>
+      <span class="tag">Cardiac</span>
+      <span class="tag">Toxicology</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="em">Buy Now</a>
+        <span class="buy-note">Instant download</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Psychiatry -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Specialty &mdash; Psychiatry</span>
+        <span class="product-price">$19.99</span>
+      </div>
+      <p class="product-desc">500+ platinum psychiatry QA pairs. Depression, anxiety, bipolar, psychosis, substance use, geriatric psych. Verified medication dosing and drug interactions &mdash; critical for a specialty where prescribing errors carry serious consequences.</p>
+      <p class="product-meta">
+        <span>500+ pairs</span>
+        <span>Medication verified</span>
+        <span>DDI aware</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag">SSRI/SNRI</span>
+      <span class="tag">Mood Stabilizers</span>
+      <span class="tag">MAT</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="psychiatry">Buy Now</a>
+        <span class="buy-note">Instant download</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Pharmacology -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Specialty &mdash; Pharmacology &amp; Drug Safety</span>
+        <span class="product-price">$19.99</span>
+      </div>
+      <p class="product-desc">500+ platinum pharmacology QA pairs. The hardest specialty to get right &mdash; 79% of raw AI-generated pharma content fails verification. Only the verified 21% survives. DDIs, adverse effects, dosing protocols, contraindications, therapeutic monitoring.</p>
+      <p class="product-meta">
+        <span>500+ pairs</span>
+        <span>FDA concordant</span>
+        <span>3-stage quality gate</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag">DDI</span>
+      <span class="tag">Dosing</span>
+      <span class="tag">PK/PD</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="pharma">Buy Now</a>
+        <span class="buy-note">Instant download</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Builder Bundle -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Builder Bundle &mdash; Pick 3 Specialties</span>
+        <span class="product-price">$49.99</span>
+      </div>
+      <p class="product-desc">Choose any 3 specialty packs from our catalog. 1,500+ platinum pairs delivered as a merged dataset with train/val/test splits. Ready for fine-tuning with any framework.</p>
+      <p class="product-meta">
+        <span>1,500+ pairs</span>
+        <span>3 specialties</span>
+        <span>Pre-split dataset</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag tag-new">Custom</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="bundle">Buy Now</a>
+        <span class="buy-note">Email specialty choices after purchase</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Full Vault -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Full Platinum Vault</span>
+        <span class="product-price">$149.99</span>
+      </div>
+      <p class="product-desc">Everything. 10,000+ CoVe-verified medical QA pairs across 14 specialties. The same dataset that trains our SwarmMed model family. One vault, one price. Includes 80/10/10 train/val/test splits.</p>
+      <p class="product-meta">
+        <span>10,000+ pairs</span>
+        <span>14 specialties</span>
+        <span>Full splits</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag tag-cove">Full CoVe</span>
+      <span class="tag tag-new">Best Value</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="vault">Buy Now</a>
+        <span class="buy-note">Instant download &middot; Commercial license</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Enterprise -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Enterprise &mdash; Vault + Quarterly Updates</span>
+        <span class="product-price">$499 / year</span>
+      </div>
+      <p class="product-desc">Full vault plus quarterly dataset drops as our pipeline produces new verified pairs. Priority access to new specialties. Volume licensing up to 10 seats. Direct support channel.</p>
+      <p class="product-meta">
+        <span>10,000+ pairs</span>
+        <span>Quarterly updates</span>
+        <span>10 seat license</span>
+      </p>
+      <span class="tag tag-plat">Platinum</span>
+      <span class="tag tag-new">Subscription</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="enterprise">Buy Now</a>
+        <span class="buy-note">Annual subscription &middot; Cancel anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- All Specialties -->
+  <section>
+    <p class="section-label">All Specialties</p>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <p class="spec-name">Cardiology</p>
+        <p class="spec-detail">ACS, heart failure, arrhythmia, valvular, GDMT</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Radiology / MRI</p>
+        <p class="spec-detail">Neuroradiology, structured reporting, brain + spine</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Emergency Medicine</p>
+        <p class="spec-detail">Trauma, cardiac arrest, stroke, toxicology</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Psychiatry</p>
+        <p class="spec-detail">Depression, bipolar, psychosis, substance use</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Pharmacology</p>
+        <p class="spec-detail">DDI, adverse effects, dosing, contraindications</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Oncology</p>
+        <p class="spec-detail">Lung, breast, colorectal, heme, supportive care</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Neurology</p>
+        <p class="spec-detail">Stroke, epilepsy, movement, MS, headache</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Pediatrics</p>
+        <p class="spec-detail">Fever, respiratory, GI, developmental, neonatal</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Primary Care</p>
+        <p class="spec-detail">Preventive, chronic disease, MSK, screening</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Endocrinology</p>
+        <p class="spec-detail">Diabetes, thyroid, adrenal, metabolic bone</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Dermatology</p>
+        <p class="spec-detail">Inflammatory, infectious, malignancy, autoimmune</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Infectious Disease</p>
+        <p class="spec-detail">Bacterial, viral, fungal, HIV, stewardship</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Geriatrics</p>
+        <p class="spec-detail">Polypharmacy, falls, dementia, palliative</p>
+      </div>
+      <div class="spec-item">
+        <p class="spec-name">Women's Health</p>
+        <p class="spec-detail">Obstetrics, gynecology, menopause, fertility</p>
+      </div>
+      <div class="spec-item" style="border-color:#1a1a2a;">
+        <p class="spec-name" style="color:#8a6ab0;">More Coming</p>
+        <p class="spec-detail">Pipeline runs 24/7. New specialties added continuously.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- FAQ -->
+  <section>
+    <p class="section-label">Frequently Asked</p>
+
+    <div class="faq-item">
+      <p class="faq-q">What is CoVe verification?</p>
+      <p class="faq-a">Chain-of-Verification is a three-step process from Meta AI research. For every claim in every answer, our pipeline: (1) Plans verification questions, (2) Executes those questions against a 235B parameter model, (3) Compares the verified answers with the original claims. If any claim fails, the pair is either rewritten with verified facts by the 235B model or rejected entirely.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What format is the data in?</p>
+      <p class="faq-a">JSONL (one JSON object per line). Each pair has: id, question, answer, specialty, source, and verification metadata. Every product includes the full dataset plus 80/10/10 train/val/test splits. Compatible with TRL, Axolotl, Unsloth, and any other fine-tuning framework.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Why is 79% of raw content rejected?</p>
+      <p class="faq-a">Small language models hallucinate. Especially in pharmacology &mdash; fabricated drug dosages, invented contraindications, wrong interaction mechanisms. Our CoVe pipeline catches all of it. The 21% that survives has every factual claim independently verified. That's what makes it platinum.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Can I use this commercially?</p>
+      <p class="faq-a">Yes. All products include a commercial use license. Fine-tune models, build products, deploy in production. Attribution appreciated but not required.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How is this different from open medical datasets?</p>
+      <p class="faq-a">Verification. Most medical QA datasets are generated and published without claim-level fact-checking. Ours runs 3 LLM calls per claim through a 235B verifier. The result is training data you can trust for clinical applications where hallucinated information is not just wrong &mdash; it's dangerous.</p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a class="cta-btn" href="https://swarm-bee.lemonsqueezy.com" target="_blank">View Full Store</a>
+    <p class="cta-note">Secure checkout powered by LemonSqueezy. Instant download after purchase.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 <a href="https://swarmandbee.com">Swarm &amp; Bee</a> &middot; Sovereign compute infrastructure &middot; <a href="https://huggingface.co/SwarmOS">SwarmOS on HuggingFace</a></p>
+  </footer>
+
+</div>
+
+<!-- LemonSqueezy Overlay Checkout -->
+<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+</body>
+</html>
