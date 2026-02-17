@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Offering Memorandum — Swarm &amp; Bee</title>
+  <meta name="description" content="Swarm & Bee Platinum Data — Product Offering Memorandum. CoVe-verified medical training data. Verification methodology, quality metrics, training configurations.">
+  <link rel="icon" type="image/svg+xml" href="https://swarmandbee.com/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #080808;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #aaa;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: rgba(180,160,220,0.15); }
+
+    a { color: #b8a0e0; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #fff; }
+
+    .wrapper { max-width: 720px; margin: 0 auto; padding: 6rem 2rem 4rem; }
+
+    /* ── Header ── */
+    .firm {
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #777; margin-bottom: 2.4rem;
+    }
+    .firm a { color: #555; }
+    .firm a:hover { color: #aaa; }
+
+    .om-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: #f0f0f0;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .om-subtitle {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #b8a0e0;
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+    }
+
+    .om-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem 1.6rem;
+      font-size: 0.78rem;
+      margin-bottom: 3rem;
+    }
+
+    .om-meta dt { color: #666; font-weight: 500; letter-spacing: 0.05em; }
+    .om-meta dd { color: #ccc; }
+
+    /* ── Dividers ── */
+    .rule { width: 40px; height: 1px; background: #222; margin: 3rem 0; }
+
+    /* ── Section ── */
+    .section-num {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #f0f0f0;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    p { font-size: 0.82rem; color: #bbb; line-height: 1.9; margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── File Table ── */
+    .file-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+    }
+
+    .file-table td {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.8rem;
+      border-bottom: 1px solid #111;
+    }
+
+    .file-table td:first-child {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: #b8a0e0;
+      white-space: nowrap;
+    }
+
+    .file-table td:last-child { color: #999; }
+
+    /* ── Field Table ── */
+    .field-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+    }
+
+    .field-table td {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+      border-bottom: 1px solid #0e0e0e;
+    }
+
+    .field-table td:first-child {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: #ccc;
+      white-space: nowrap;
+      width: 120px;
+    }
+
+    .field-table td:last-child { color: #999; }
+
+    /* ── Stats Grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin: 1.4rem 0;
+    }
+
+    .stat-item {
+      background: #0a0a0a;
+      padding: 1.4rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #b8a0e0;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* ── Pipeline Steps ── */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin: 1.4rem 0;
+    }
+
+    .pipe-step {
+      background: #0a0a0a;
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+
+    .pipe-num {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #b8a0e0;
+      margin-bottom: 0.2rem;
+    }
+
+    .pipe-label {
+      font-size: 0.52rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .pipe-desc {
+      font-size: 0.5rem;
+      color: #666;
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    /* ── CoVe Steps ── */
+    .cove-step {
+      border: 1px solid #151515;
+      margin-bottom: 1rem;
+      padding: 1.4rem 1.6rem;
+      background: #0a0a0a;
+    }
+
+    .cove-step-header {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #ddd;
+      margin-bottom: 0.6rem;
+    }
+
+    .cove-step-header span { color: #b8a0e0; }
+
+    .cove-step p { font-size: 0.78rem; color: #999; margin-bottom: 0; }
+
+    /* ── Config Block ── */
+    .config-block {
+      background: #0a0a0a;
+      border: 1px solid #151515;
+      padding: 1.4rem 1.6rem;
+      margin: 1rem 0;
+    }
+
+    .config-title {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.8rem;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0.3rem 1rem;
+      font-size: 0.75rem;
+    }
+
+    .config-key { color: #999; }
+    .config-val { color: #ccc; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+    /* ── Sample Pair ── */
+    .sample-block {
+      background: #0c0c0c;
+      border: 1px solid #151515;
+      padding: 1.6rem;
+      margin: 1rem 0;
+    }
+
+    .sample-label {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.8rem;
+    }
+
+    .sample-q {
+      font-size: 0.8rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .sample-a {
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.9;
+      border-left: 2px solid #2a1a3a;
+      padding-left: 1rem;
+    }
+
+    .sample-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8a6ab0;
+      border: 1px solid #2a1a3a;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── License Lists ── */
+    .license-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .license-list li {
+      font-size: 0.8rem;
+      line-height: 2;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .license-list.allowed li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #5aaa8a;
+    }
+
+    .license-list.restricted li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: #d88;
+    }
+
+    .license-list.allowed li { color: #bbb; }
+    .license-list.restricted li { color: #999; }
+
+    /* ── Disclaimer Box ── */
+    .disclaimer {
+      border: 1px solid #1a1515;
+      background: #0c0a0a;
+      padding: 1.6rem;
+      margin: 1rem 0;
+    }
+
+    .disclaimer p { font-size: 0.78rem; color: #c99; }
+
+    /* ── CTA ── */
+    .cta { margin-top: 3rem; text-align: center; }
+
+    .cta-btn {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #080808;
+      background: #b8a0e0;
+      padding: 0.9rem 2.8rem;
+      transition: all 0.4s ease;
+      margin: 0 0.5rem;
+    }
+
+    .cta-btn:hover { background: #c8b0f0; color: #080808; }
+
+    .cta-btn-outline {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ccc;
+      border: 1px solid #333;
+      padding: 0.85rem 2.8rem;
+      transition: all 0.4s ease;
+      margin: 0 0.5rem;
+    }
+
+    .cta-btn-outline:hover { color: #fff; border-color: #b8a0e0; }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #111;
+      text-align: center;
+      font-size: 0.68rem;
+      color: #666;
+    }
+    .footer a { color: #888; }
+    .footer a:hover { color: #ddd; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .wrapper { padding: 4rem 1.4rem 3rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: repeat(3, 1fr); }
+      .config-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <p class="firm"><a href="https://swarmandbee.com">Swarm &amp; Bee</a> &middot; <a href="/">Platinum Data</a></p>
+
+  <h1 class="om-title">Product Offering Memorandum</h1>
+  <p class="om-subtitle">Platinum Medical QA Training Data</p>
+
+  <dl class="om-meta">
+    <dt>Prepared</dt>
+    <dd>February 2026</dd>
+    <dt>Firm</dt>
+    <dd>Swarm &amp; Bee (S&B)</dd>
+    <dt>Products</dt>
+    <dd>13 SKUs &mdash; Sample, Specialty, Bundle, Vault, Enterprise</dd>
+    <dt>Format</dt>
+    <dd>JSONL with 80/10/10 splits</dd>
+    <dt>Support</dt>
+    <dd><a href="mailto:data@swarmandbee.com">data@swarmandbee.com</a></dd>
+  </dl>
+
+  <div class="rule"></div>
+
+  <!-- 1. Product Overview -->
+  <p class="section-num">Section 01</p>
+  <h2>Product Overview</h2>
+  <p>Swarm &amp; Bee produces CoVe-verified platinum medical question-answer pairs for machine learning model training, fine-tuning, and evaluation. Every pair passes through our Chain-of-Verification pipeline, where each factual claim is independently checked by a 235 billion parameter model.</p>
+  <p>Our datasets cover 14 medical specialties &mdash; from cardiology and radiology to pharmacology and emergency medicine. Available as individual specialty packs, bundles, or the complete vault.</p>
+
+  <div class="stats-grid">
+    <div class="stat-item">
+      <p class="stat-value">235B</p>
+      <p class="stat-label">Verifier Model</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-value">3</p>
+      <p class="stat-label">LLM Calls / Claim</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-value">79%</p>
+      <p class="stat-label">Raw Reject Rate</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-value">14</p>
+      <p class="stat-label">Specialties</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-value">10K+</p>
+      <p class="stat-label">Platinum Pairs</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-value">94%+</p>
+      <p class="stat-label">Disclaimer Rate</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- 2. Contents -->
+  <p class="section-num">Section 02</p>
+  <h2>Package Contents</h2>
+  <p>Every product ships as a ZIP containing the following files:</p>
+
+  <table class="file-table">
+    <tr><td>[product].jsonl</td><td>Full dataset &mdash; all pairs for this product</td></tr>
+    <tr><td>splits/train.jsonl</td><td>Training set (80% of pairs)</td></tr>
+    <tr><td>splits/val.jsonl</td><td>Validation set (10% of pairs)</td></tr>
+    <tr><td>splits/test.jsonl</td><td>Test set (10% of pairs)</td></tr>
+    <tr><td>PRODUCT_OM.txt</td><td>Product-specific offering memorandum</td></tr>
+    <tr><td>LICENSE.txt</td><td>Commercial data license</td></tr>
+  </table>
+
+  <p>Each pair is a single JSON object with the following fields:</p>
+
+  <table class="field-table">
+    <tr><td>id</td><td>Unique identifier (hash-based, deterministic)</td></tr>
+    <tr><td>question</td><td>Clinical scenario or medical question</td></tr>
+    <tr><td>answer</td><td>Evidence-based response with clinical disclaimers</td></tr>
+    <tr><td>specialty</td><td>Medical specialty classification</td></tr>
+    <tr><td>source</td><td>Generation pipeline identifier</td></tr>
+    <tr><td>cove_status</td><td>Verification result (PASS or REWRITE)</td></tr>
+  </table>
+
+  <div class="rule"></div>
+
+  <!-- 3. Pipeline -->
+  <p class="section-num">Section 03</p>
+  <h2>Production Pipeline</h2>
+  <p>Every pair passes through a six-stage pipeline from medical literature to verified training data:</p>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <p class="pipe-num">01</p>
+      <p class="pipe-label">Harvest</p>
+      <p class="pipe-desc">10+ medical sources</p>
+    </div>
+    <div class="pipe-step">
+      <p class="pipe-num">02</p>
+      <p class="pipe-label">Generate</p>
+      <p class="pipe-desc">Specialty QA models</p>
+    </div>
+    <div class="pipe-step">
+      <p class="pipe-num">03</p>
+      <p class="pipe-label">Audit</p>
+      <p class="pipe-desc">Multi-stage quality gate</p>
+    </div>
+    <div class="pipe-step">
+      <p class="pipe-num">04</p>
+      <p class="pipe-label">Verify</p>
+      <p class="pipe-desc">CoVe 235B fact-check</p>
+    </div>
+    <div class="pipe-step">
+      <p class="pipe-num">05</p>
+      <p class="pipe-label">Rewrite</p>
+      <p class="pipe-desc">235B corrects errors</p>
+    </div>
+    <div class="pipe-step">
+      <p class="pipe-num">06</p>
+      <p class="pipe-label">Deliver</p>
+      <p class="pipe-desc">Platinum vault only</p>
+    </div>
+  </div>
+
+  <p><strong>Sources:</strong> PubMed, PMC full-text, FDA drug labels, ClinicalTrials.gov, Semantic Scholar, medRxiv, Europe PMC, HuggingFace medical datasets, GitHub medical repositories, Reddit medical communities.</p>
+
+  <div class="rule"></div>
+
+  <!-- 4. Verification Methodology -->
+  <p class="section-num">Section 04</p>
+  <h2>Verification Methodology</h2>
+  <p>Chain-of-Verification (CoVe) is a three-step verification framework from Meta AI research, adapted for medical fact-checking. For every claim in every answer, three independent LLM calls determine accuracy.</p>
+
+  <div class="cove-step">
+    <p class="cove-step-header"><span>Step 1</span> &mdash; Plan</p>
+    <p>Extract all factual claims from the answer. For each claim, generate a verification question that can independently confirm or refute it. Drug dosages, contraindications, guidelines, and clinical protocols each become separate verification targets.</p>
+  </div>
+
+  <div class="cove-step">
+    <p class="cove-step-header"><span>Step 2</span> &mdash; Execute</p>
+    <p>Route each verification question to the 235B parameter model (Qwen3-235B). The verifier has no access to the original answer &mdash; it answers from its own knowledge base. This independence is critical for detecting hallucinated content.</p>
+  </div>
+
+  <div class="cove-step">
+    <p class="cove-step-header"><span>Step 3</span> &mdash; Compare</p>
+    <p>Compare the 235B verification response with the original claim. Three outcomes: <strong>PASS</strong> (claim verified correct), <strong>FLAG</strong> (claim questionable &mdash; sent to 235B for rewrite with verified facts), <strong>FAIL</strong> (claim incorrect &mdash; permanently rejected).</p>
+  </div>
+
+  <p>A single failed claim downgrades the entire pair. FLAG pairs are rewritten by the 235B model using only independently verified facts. The result is platinum-grade training data where every factual claim has been independently verified.</p>
+
+  <div class="rule"></div>
+
+  <!-- 5. Training Configurations -->
+  <p class="section-num">Section 05</p>
+  <h2>Suggested Training Configurations</h2>
+  <p>Compatible with any HuggingFace-based training framework. Recommended configurations for medical fine-tuning:</p>
+
+  <div class="config-block">
+    <p class="config-title">Recommended Base Models</p>
+    <div class="config-grid">
+      <span class="config-key">Primary</span><span class="config-val">Qwen2.5-7B-Instruct</span>
+      <span class="config-key">Alternative</span><span class="config-val">Llama-3.1-8B-Instruct</span>
+      <span class="config-key">General</span><span class="config-val">Mistral-7B-Instruct-v0.3</span>
+    </div>
+  </div>
+
+  <div class="config-block">
+    <p class="config-title">LoRA Configuration (7B Models)</p>
+    <div class="config-grid">
+      <span class="config-key">Rank</span><span class="config-val">64</span>
+      <span class="config-key">Alpha</span><span class="config-val">128</span>
+      <span class="config-key">Target Modules</span><span class="config-val">q, k, v, o, gate, up, down</span>
+      <span class="config-key">Dropout</span><span class="config-val">0.05</span>
+    </div>
+  </div>
+
+  <div class="config-block">
+    <p class="config-title">Training Configuration</p>
+    <div class="config-grid">
+      <span class="config-key">Epochs</span><span class="config-val">3</span>
+      <span class="config-key">Batch Size</span><span class="config-val">4 (effective 16)</span>
+      <span class="config-key">Learning Rate</span><span class="config-val">2e-4</span>
+      <span class="config-key">Max Sequence Length</span><span class="config-val">2048</span>
+      <span class="config-key">Scheduler</span><span class="config-val">cosine</span>
+      <span class="config-key">Warmup</span><span class="config-val">3%</span>
+    </div>
+  </div>
+
+  <div class="config-block">
+    <p class="config-title">Hardware Requirements</p>
+    <div class="config-grid">
+      <span class="config-key">Minimum</span><span class="config-val">1x 24GB VRAM (RTX 4090)</span>
+      <span class="config-key">Recommended</span><span class="config-val">1x 48GB+ VRAM (RTX 6000)</span>
+      <span class="config-key">Optimal</span><span class="config-val">1x RTX 6000 Pro 96GB (Blackwell)</span>
+    </div>
+  </div>
+
+  <div class="config-block">
+    <p class="config-title">Expected Results (~500 Platinum Pairs, 7B Base)</p>
+    <div class="config-grid">
+      <span class="config-key">Medical QA Accuracy</span><span class="config-val">+4-8% over base</span>
+      <span class="config-key">Concept Coverage</span><span class="config-val">50%+ on specialty evals</span>
+      <span class="config-key">Disclaimer Compliance</span><span class="config-val">90%+</span>
+      <span class="config-key">Training Time</span><span class="config-val">30-90 min (single GPU)</span>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- 6. Sample Pair -->
+  <p class="section-num">Section 06</p>
+  <h2>Sample Pair</h2>
+
+  <div class="sample-block">
+    <p class="sample-label">Cardiology &mdash; Acute Coronary Syndrome</p>
+    <p class="sample-q"><strong>Q:</strong> A 62-year-old male presents with substernal chest pressure radiating to the left arm for 45 minutes. ECG shows ST-elevation in leads II, III, and aVF. Troponin I is 2.4 ng/mL. BP 138/82, HR 88. What is the immediate management approach, and what are the key pharmacotherapy decisions in the first 24 hours?</p>
+    <div class="sample-a">
+      <strong>A:</strong> This presentation is consistent with an inferior STEMI. Immediate management includes activating the cardiac catheterization lab for primary PCI (target door-to-balloon time &lt;90 minutes). Administer aspirin 325mg chewable, ticagrelor 180mg loading dose (or clopidogrel 600mg if ticagrelor is contraindicated), and unfractionated heparin 60 U/kg bolus (max 4000 U). Sublingual nitroglycerin for ongoing pain, with caution given inferior MI (monitor for right ventricular involvement and hypotension). Post-PCI: dual antiplatelet therapy for 12 months, high-intensity statin (atorvastatin 80mg), beta-blocker (metoprolol tartrate 25mg BID titrated to HR goal), and ACE inhibitor (lisinopril 2.5&ndash;5mg daily) once hemodynamically stable. <em>This response is for educational purposes. All clinical decisions should be made by qualified healthcare providers based on individual patient assessment.</em>
+    </div>
+    <span class="sample-badge">CoVe Verified &middot; 235B &middot; Platinum</span>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- 7. License -->
+  <p class="section-num">Section 07</p>
+  <h2>License</h2>
+  <p>Upon purchase, you receive a non-exclusive, non-transferable, perpetual license:</p>
+
+  <ul class="license-list allowed">
+    <li>Use the dataset for training, fine-tuning, and evaluating machine learning models</li>
+    <li>Use models trained on the dataset in commercial applications</li>
+    <li>Create derivative works (trained models) from the dataset</li>
+    <li>Internal research and development</li>
+  </ul>
+
+  <ul class="license-list restricted">
+    <li>Redistribute, resell, or sublicense the raw dataset</li>
+    <li>Share purchased data files publicly or with unlicensed parties</li>
+    <li>Claim authorship of the dataset itself</li>
+    <li>Use the dataset to build a competing data product</li>
+  </ul>
+
+  <p>Enterprise licenses permit use by up to 10 individuals within a single organization. Full terms at <a href="/terms.html">data.swarmandbee.com/terms.html</a>.</p>
+
+  <div class="rule"></div>
+
+  <!-- 8. Medical Disclaimer -->
+  <p class="section-num">Section 08</p>
+  <h2>Medical Disclaimer</h2>
+
+  <div class="disclaimer">
+    <p>This dataset is intended for machine learning research and model training purposes <strong>only</strong>. The medical content within is not intended as clinical advice, diagnostic guidance, or treatment recommendations.</p>
+    <p style="margin-top:0.8rem;">While every pair has been verified through our CoVe pipeline, no dataset is guaranteed to be 100% error-free. Users are responsible for validating outputs of any models trained on this data before deploying in clinical or healthcare settings.</p>
+    <p style="margin-top:0.8rem;">Swarm &amp; Bee is not a healthcare provider and does not provide medical advice. Our products are data assets for AI/ML development.</p>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a class="cta-btn" href="/">View Products</a>
+    <a class="cta-btn-outline" href="mailto:data@swarmandbee.com?subject=Platinum%20Data%20Inquiry">Contact Us</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 <a href="https://swarmandbee.com">Swarm &amp; Bee</a> &middot; <a href="https://compute.swarmandbee.com">Compute</a> &middot; <a href="https://medical.swarmandbee.com">Medical</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
