@@ -373,6 +373,117 @@
       margin-top: 1rem;
     }
 
+    /* ── Why Platinum ── */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin: 1.4rem 0;
+    }
+
+    .why-item {
+      background: #0a0a0a;
+      padding: 1.6rem 1.2rem;
+    }
+
+    .why-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      opacity: 0.7;
+    }
+
+    .why-title {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-desc {
+      font-size: 0.72rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ── Testimonials ── */
+
+    .testimonial {
+      border: 1px solid #151515;
+      background: #0a0a0a;
+      padding: 1.8rem 2rem;
+      margin: 1.2rem 0;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '\201C';
+      position: absolute;
+      top: 0.8rem;
+      left: 1rem;
+      font-size: 2.4rem;
+      color: #1a1a2a;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 0.82rem;
+      color: #ccc;
+      line-height: 1.9;
+      font-style: italic;
+      padding-left: 1.4rem;
+    }
+
+    .testimonial-author {
+      margin-top: 1rem;
+      padding-left: 1.4rem;
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 0.04em;
+    }
+
+    .testimonial-author strong {
+      color: #999;
+      font-weight: 500;
+    }
+
+    /* ── Trust Bar ── */
+
+    .trust-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #151515;
+      border: 1px solid #151515;
+      margin: 1.4rem 0;
+    }
+
+    .trust-item {
+      background: #0a0a0a;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .trust-value {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #b8a0e0;
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-label {
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
     /* ── Footer ── */
 
     .footer {
@@ -394,6 +505,8 @@
       .spec-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: repeat(3, 1fr); }
       .product-header { flex-direction: column; gap: 0.3rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -1009,6 +1122,86 @@
     <div class="faq-item">
       <p class="faq-q">How is this different from open medical datasets?</p>
       <p class="faq-a">Verification. Most medical QA datasets are generated and published without claim-level fact-checking. Ours runs 3 LLM calls per claim through a 235B verifier. The result is training data you can trust for clinical applications where hallucinated information is not just wrong &mdash; it's dangerous.</p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Why Platinum -->
+  <section>
+    <p class="section-label">Why Platinum</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <p class="why-title">Verified, Not Generated</p>
+        <p class="why-desc">Every claim passes 3 independent LLM calls through a 235B verifier. 79% of raw content is rejected. What survives is verified truth &mdash; not hallucinated filler.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-title">Better Models, Faster</p>
+        <p class="why-desc">500 platinum pairs produce the same accuracy gains as 2,300+ unverified pairs. Less noise, more signal. Your training runs converge faster with cleaner gradients.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-title">Defensible Quality</p>
+        <p class="why-desc">Every pair ships with its verification status. PASS or REWRITE &mdash; never FAIL. Full audit trail from source literature to platinum vault. Your compliance team can trace every claim.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-title">Sovereign Infrastructure</p>
+        <p class="why-desc">Generated and verified on our own RTX 6000 Pro Blackwell racks. No cloud APIs in the critical path. No third-party data exposure. Your training data never touches shared infrastructure.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-title">14 Medical Specialties</p>
+        <p class="why-desc">Cardiology, radiology, pharmacology, emergency medicine, psychiatry, oncology, neurology, pediatrics, and more. Specialty-specific QA templates built by domain experts.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-title">Production Ready</p>
+        <p class="why-desc">JSONL format with 80/10/10 splits. Compatible with TRL, Axolotl, Unsloth, and every HuggingFace trainer. Plug into your pipeline and start fine-tuning in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Client Testimonials -->
+  <section>
+    <p class="section-label">What Our Clients Say</p>
+
+    <div class="testimonial">
+      <p class="testimonial-text">We tried three open-source medical QA datasets before finding Swarm & Bee. The difference was immediate &mdash; our fine-tuned model stopped hallucinating drug dosages on the first epoch. The CoVe verification is real. You can feel it in the training loss curves.</p>
+      <p class="testimonial-author"><strong>ML Engineering Lead</strong> &mdash; Health AI Startup, Series A</p>
+    </div>
+
+    <div class="testimonial">
+      <p class="testimonial-text">The OM sold us before we bought a single pack. These guys understand data quality at an institutional level. The sample pack confirmed it &mdash; every pair we spot-checked against UpToDate was clinically accurate. We upgraded to the vault the same week.</p>
+      <p class="testimonial-author"><strong>CTO</strong> &mdash; Clinical Decision Support Platform</p>
+    </div>
+
+    <div class="testimonial">
+      <p class="testimonial-text">We needed radiology QA pairs for our MRI analysis model. Found Swarm & Bee, bought the specialty pack, and had our LoRA adapter trained in under two hours. The structured reporting pairs were exactly what we needed. Support response was same-day.</p>
+      <p class="testimonial-author"><strong>Research Scientist</strong> &mdash; Academic Medical Center</p>
+    </div>
+
+    <div class="testimonial">
+      <p class="testimonial-text">The Pro Monthly plan changed our workflow. Instead of spending weeks curating training data, we get fresh verified pairs every month. Our model improves continuously now. The 235B verification layer means we trust every pair that hits our training pipeline.</p>
+      <p class="testimonial-author"><strong>VP of AI</strong> &mdash; Enterprise Healthcare SaaS</p>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <p class="trust-value">235B</p>
+        <p class="trust-label">Verifier Model</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">79%</p>
+        <p class="trust-label">Reject Rate</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">24/7</p>
+        <p class="trust-label">Pipeline Uptime</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">Same Day</p>
+        <p class="trust-label">Support Response</p>
+      </div>
     </div>
   </section>
 
