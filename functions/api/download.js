@@ -23,6 +23,8 @@ const PRODUCT_MAP = {
   "specialty-womens-health":       "Specialty_Womens_Health.zip",
   "full-platinum-vault":           "Full_Platinum_Vault.zip",
   "enterprise-annual":             "Enterprise_Annual.zip",
+  "pro-monthly-5k":                "Full_Platinum_Vault.zip",
+  "pro-monthly-10k":               "Full_Platinum_Vault.zip",
 };
 
 export async function onRequestGet(context) {
