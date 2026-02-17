@@ -375,6 +375,81 @@
     .footer a { color: #888; }
     .footer a:hover { color: #ddd; }
 
+    /* ── Action Bar ── */
+    .action-bar {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ccc;
+      border: 1px solid #222;
+      padding: 0.55rem 1.2rem;
+      cursor: pointer;
+      font-family: inherit;
+      background: none;
+      transition: all 0.3s;
+    }
+
+    .action-btn:hover { color: #fff; border-color: #b8a0e0; }
+    .action-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    /* ── Print / PDF Styles ── */
+    @media print {
+      body { background: #fff; color: #222; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .wrapper { max-width: 100%; padding: 0.5in; }
+      .firm a, a { color: #444 !important; }
+      .om-title { color: #111; }
+      .om-subtitle { color: #6a5a8a; }
+      .om-meta dt { color: #666; }
+      .om-meta dd { color: #222; }
+      h2 { color: #111; }
+      p { color: #333; }
+      .rule { background: #ccc; }
+      .stats-grid, .pipeline { background: #e8e8e8; border-color: #e8e8e8; }
+      .stat-item, .pipe-step { background: #fff; }
+      .stat-value, .pipe-num { color: #6a5a8a; }
+      .stat-label, .pipe-label, .pipe-desc { color: #555; }
+      .section-num { color: #888; }
+      .cove-step { background: #fafafa; border-color: #ddd; }
+      .cove-step-header { color: #222; }
+      .cove-step-header span { color: #6a5a8a; }
+      .cove-step p { color: #444; }
+      .config-block { background: #fafafa; border-color: #ddd; }
+      .config-title { color: #666; }
+      .config-key { color: #555; }
+      .config-val { color: #222; }
+      .sample-block { background: #fafafa; border-color: #ddd; }
+      .sample-label { color: #666; }
+      .sample-q, .sample-a { color: #222; }
+      .sample-a { border-left-color: #ccc; }
+      .sample-badge { color: #6a5a8a; border-color: #ccc; }
+      .license-list.allowed li { color: #222; }
+      .license-list.restricted li { color: #666; }
+      .license-list.allowed li::before { color: #2a8a5a; }
+      .license-list.restricted li::before { color: #c44; }
+      .disclaimer { background: #fef8f8; border-color: #e8d0d0; }
+      .disclaimer p { color: #833; }
+      .file-table td { border-bottom-color: #ddd; }
+      .file-table td:first-child { color: #6a5a8a; }
+      .file-table td:last-child { color: #555; }
+      .field-table td { border-bottom-color: #eee; }
+      .field-table td:first-child { color: #222; }
+      .field-table td:last-child { color: #555; }
+      .action-bar, .cta, .footer { display: none !important; }
+      .wrapper { page-break-inside: auto; }
+      .cove-step, .config-block, .sample-block { page-break-inside: avoid; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .wrapper { padding: 4rem 1.4rem 3rem; }
@@ -405,6 +480,17 @@
     <dt>Support</dt>
     <dd><a href="mailto:data@swarmandbee.com">data@swarmandbee.com</a></dd>
   </dl>
+
+  <div class="action-bar">
+    <button class="action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Download PDF
+    </button>
+    <a class="action-btn" id="share-btn" href="#">
+      <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+      Forward to a Friend
+    </a>
+  </div>
 
   <div class="rule"></div>
 
@@ -656,5 +742,19 @@
 
 </div>
 
+<script>
+(function() {
+  var subject = encodeURIComponent('Swarm & Bee — Platinum Data Offering Memorandum');
+  var body = encodeURIComponent(
+    'Take a look at this — CoVe-verified medical training data from Swarm & Bee.\n\n'
+    + 'Offering Memorandum:\nhttps://data.swarmandbee.com/om.html\n\n'
+    + 'Products & Pricing:\nhttps://data.swarmandbee.com\n\n'
+    + '235B parameter verification. 79% reject rate. Platinum or rejected.\n'
+    + 'Every claim independently fact-checked.\n\n'
+    + '— Swarm & Bee\ndata@swarmandbee.com | swarmandbee.com'
+  );
+  document.getElementById('share-btn').href = 'mailto:?subject=' + subject + '&body=' + body;
+})();
+</script>
 </body>
 </html>
