@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platinum Data — Swarm &amp; Bee</title>
-  <meta name="description" content="CoVe-verified medical training data. Every claim fact-checked by 235B. Platinum-grade QA pairs for fine-tuning clinical AI models.">
-  <meta property="og:title" content="Platinum Data — Swarm & Bee">
-  <meta property="og:description" content="CoVe-verified medical training data. Every claim fact-checked by 235B.">
+  <title>Platinum Data &amp; Sovereign Compute — Swarm &amp; Bee</title>
+  <meta name="description" content="CoVe-verified medical training data and sovereign GPU compute. 128x RTX 6000 Pro Blackwell. Platinum QA pairs, fine-tuning, dedicated GPUs.">
+  <meta property="og:title" content="Platinum Data & Sovereign Compute — Swarm & Bee">
+  <meta property="og:description" content="CoVe-verified medical training data. 128x RTX 6000 Pro Blackwell GPUs. Sovereign compute infrastructure.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://data.swarmandbee.com">
   <link rel="icon" type="image/svg+xml" href="https://swarmandbee.com/favicon.svg">
@@ -214,6 +214,9 @@
     .tag-plat { border-color: #2a1a3a; color: #8a6ab0; }
     .tag-cove { border-color: #1a2a2a; color: #4a8a8a; }
     .tag-new { border-color: #1a2a1a; color: #4a8a4a; }
+    .tag-gpu { border-color: #2a2a1a; color: #c8af64; }
+
+    .trust-value .gpu { color: #c8af64; }
 
     .buy-row {
       margin-top: 1rem;
@@ -401,8 +404,8 @@
   <!-- Header -->
   <header class="header">
     <p class="firm"><a href="https://swarmandbee.com">Swarm &amp; Bee</a></p>
-    <h1 class="vault-title">Platinum Data</h1>
-    <p class="vault-sub">CoVe-verified medical training data. Every claim independently fact-checked by a 235-billion parameter model. No hallucinated dosing. No fabricated guidelines. Platinum or rejected &mdash; nothing in between.</p>
+    <h1 class="vault-title">Platinum Data &amp; Sovereign Compute</h1>
+    <p class="vault-sub">CoVe-verified medical training data. Sovereign GPU infrastructure. Every claim fact-checked by 235B. 128 RTX 6000 Pro Blackwell GPUs &mdash; your data never leaves our racks. Platinum or rejected. Nothing in between.</p>
   </header>
 
   <div class="rule"></div>
@@ -471,6 +474,42 @@
         <p class="trust-label">Hallucinated Doses</p>
       </div>
     </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Infrastructure -->
+  <section>
+    <p class="section-label">Infrastructure</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <p class="trust-value"><span class="gpu">128</span></p>
+        <p class="trust-label">RTX 6000 Pro GPUs</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value"><span class="gpu">96 GB</span></p>
+        <p class="trust-label">VRAM Per GPU</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value"><span class="gpu">12 TB</span></p>
+        <p class="trust-label">Total VRAM</p>
+      </div>
+    </div>
+    <div class="trust-grid" style="margin-top:1px;">
+      <div class="trust-item">
+        <p class="trust-value">Blackwell</p>
+        <p class="trust-label">Architecture</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">Sovereign</p>
+        <p class="trust-label">Single Tenant</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-value">On-Prem</p>
+        <p class="trust-label">Your Data Stays Home</p>
+      </div>
+    </div>
+    <p style="font-size:0.75rem; color:#888; margin-top:1.2rem; line-height:1.8;">Every dataset we produce is verified on our own sovereign hardware. No cloud dependencies. No third-party data exposure. The same infrastructure is available to you &mdash; dedicated GPUs, fine-tuning services, and sovereign inference.</p>
   </section>
 
   <div class="rule"></div>
@@ -699,6 +738,126 @@
       <div class="buy-row">
         <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="enterprise">Buy Now</a>
         <span class="buy-note">Annual subscription &middot; Cancel anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- Compute Products -->
+  <section>
+    <p class="section-label">Sovereign Compute</p>
+
+    <!-- Fine-Tune 7B -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Fine-Tune &mdash; 7B Model</span>
+        <span class="product-price">$299</span>
+      </div>
+      <p class="product-desc">We fine-tune your 7B-class model on our RTX 6000 Pro Blackwell GPUs. Send us your dataset, we return LoRA adapters + merged weights. Qwen, Llama, Mistral, or any HuggingFace-compatible base. Sovereign &mdash; your data never leaves our racks.</p>
+      <p class="product-meta">
+        <span>RTX 6000 Pro 96GB</span>
+        <span>LoRA + merged delivery</span>
+        <span>48hr turnaround</span>
+      </p>
+      <span class="tag tag-gpu">GPU Compute</span>
+      <span class="tag">7B Class</span>
+      <span class="tag">Single GPU</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="finetune-7b">Buy Now</a>
+        <span class="buy-note">Upload dataset after purchase</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Fine-Tune 70B -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Fine-Tune &mdash; 70B Model</span>
+        <span class="product-price">$999</span>
+      </div>
+      <p class="product-desc">Fine-tune 70B-class models on multi-GPU sovereign infrastructure. Full QLoRA/LoRA support with 96GB per GPU &mdash; no quantization compromises. Llama 70B, Qwen 72B, Mixtral, or any large open-weight model. Delivered as LoRA adapters + merged weights.</p>
+      <p class="product-meta">
+        <span>Multi-GPU (2&ndash;4x 96GB)</span>
+        <span>LoRA + merged delivery</span>
+        <span>72hr turnaround</span>
+      </p>
+      <span class="tag tag-gpu">GPU Compute</span>
+      <span class="tag">70B Class</span>
+      <span class="tag">Multi-GPU</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="finetune-70b">Buy Now</a>
+        <span class="buy-note">Upload dataset after purchase</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Inference Hours -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Inference Hours &mdash; 10 Hour Pack</span>
+        <span class="product-price">$49.99</span>
+      </div>
+      <p class="product-desc">10 hours of dedicated GPU inference on RTX 6000 Pro Blackwell. Run your fine-tuned model, benchmark evaluations, or batch processing. vLLM or llama.cpp backend. Sovereign &mdash; no data leaves your allocated GPU.</p>
+      <p class="product-meta">
+        <span>RTX 6000 Pro 96GB</span>
+        <span>vLLM / llama.cpp</span>
+        <span>API access</span>
+      </p>
+      <span class="tag tag-gpu">GPU Compute</span>
+      <span class="tag">Inference</span>
+      <span class="tag">10 Hours</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="inference-10hr">Buy Now</a>
+        <span class="buy-note">API credentials delivered after purchase</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Dedicated GPU Monthly -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">Dedicated GPU &mdash; Monthly</span>
+        <span class="product-price">$2,499 / mo</span>
+      </div>
+      <p class="product-desc">One dedicated RTX 6000 Pro Blackwell (96GB VRAM) on sovereign infrastructure. Single-tenant &mdash; the GPU is exclusively yours. Train, fine-tune, and serve 24/7. No noisy neighbors. No cloud egress fees. Your data never leaves your rack.</p>
+      <p class="product-meta">
+        <span>96GB VRAM dedicated</span>
+        <span>Single tenant</span>
+        <span>24/7 access</span>
+      </p>
+      <span class="tag tag-gpu">GPU Compute</span>
+      <span class="tag tag-new">Dedicated</span>
+      <span class="tag">Sovereign</span>
+      <div class="buy-row">
+        <a class="buy-btn lemonsqueezy-button" href="https://swarm-bee.lemonsqueezy.com/buy" data-product="dedicated-gpu">Buy Now</a>
+        <span class="buy-note">Monthly subscription &middot; Cancel anytime</span>
+      </div>
+    </div>
+
+    <div class="rule-full"></div>
+
+    <!-- Multi-GPU Cluster -->
+    <div class="product">
+      <div class="product-header">
+        <span class="product-name">GPU Cluster &mdash; Custom</span>
+        <span class="product-price">Contact Us</span>
+      </div>
+      <p class="product-desc">Need 4, 8, or 16+ GPUs? Custom sovereign clusters on RTX 6000 Pro Blackwell infrastructure. Multi-node training, distributed inference, or full model serving environments. NVLink interconnect available. We design the rack, you own the workload.</p>
+      <p class="product-meta">
+        <span>Up to 128 GPUs</span>
+        <span>12TB total VRAM</span>
+        <span>Custom configuration</span>
+      </p>
+      <span class="tag tag-gpu">GPU Compute</span>
+      <span class="tag tag-new">Enterprise</span>
+      <span class="tag">Multi-Node</span>
+      <div class="buy-row">
+        <a class="buy-btn" href="mailto:hello@swarmandbee.com?subject=GPU%20Cluster%20Inquiry">Contact Sales</a>
+        <span class="buy-note">Custom pricing &middot; Typically respond within 24 hours</span>
       </div>
     </div>
   </section>
