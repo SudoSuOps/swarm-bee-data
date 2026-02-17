@@ -2,7 +2,7 @@
  * Swarm & Bee — Verified Download Endpoint
  *
  * Verifies Stripe checkout session, then streams product zip from R2.
- * CF Pages Function: data.swarmandbee.com/api/download?session_id=xxx
+ * CF Pages Function: data.swarmandbee.com/api/download?session_id=xxx&product=slug
  *
  * Environment bindings required:
  *   STRIPE_SECRET_KEY  - Stripe secret key (env var)
@@ -27,13 +27,19 @@ const PRODUCT_MAP = {
   "pro-monthly-10k":               "Full_Platinum_Vault.zip",
 };
 
-export async function onRequestGet(context) {
+// Validate Stripe session ID format
+function isValidSessionId(id) {
+  return /^cs_(test|live)_[a-zA-Z0-9]{10,}$/.test(id);
+}
+
+async function handleRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
+  const isHead = request.method === "HEAD";
   const sessionId = url.searchParams.get("session_id");
 
-  if (!sessionId) {
-    return new Response(JSON.stringify({ error: "Missing session_id" }), {
+  if (!sessionId || !isValidSessionId(sessionId)) {
+    return new Response(isHead ? null : JSON.stringify({ error: "Invalid or missing session" }), {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });
@@ -52,7 +58,7 @@ export async function onRequestGet(context) {
     );
 
     if (!stripeRes.ok) {
-      return new Response(JSON.stringify({ error: "Invalid session" }), {
+      return new Response(isHead ? null : JSON.stringify({ error: "Invalid session" }), {
         status: 403,
         headers: { "Content-Type": "application/json" },
       });
@@ -60,7 +66,7 @@ export async function onRequestGet(context) {
 
     session = await stripeRes.json();
   } catch (e) {
-    return new Response(JSON.stringify({ error: "Stripe verification failed" }), {
+    return new Response(isHead ? null : JSON.stringify({ error: "Verification failed" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
@@ -68,27 +74,32 @@ export async function onRequestGet(context) {
 
   // Check payment status
   if (session.payment_status !== "paid") {
-    return new Response(JSON.stringify({ error: "Payment not completed" }), {
+    return new Response(isHead ? null : JSON.stringify({ error: "Payment not completed" }), {
       status: 402,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  // Determine which product to serve from session metadata or line items
+  // Get product slug — prefer session metadata (server-side, tamper-proof)
   let productSlug = url.searchParams.get("product");
 
-  // If no product param, try to get from session metadata
-  if (!productSlug && session.metadata && session.metadata.product_slug) {
+  // If session has metadata.product_slug, enforce it (prevents slug swapping)
+  if (session.metadata && session.metadata.product_slug) {
     productSlug = session.metadata.product_slug;
   }
 
   if (!productSlug || !PRODUCT_MAP[productSlug]) {
-    return new Response(JSON.stringify({
-      error: "Unknown product",
-      available: Object.keys(PRODUCT_MAP),
-    }), {
+    return new Response(isHead ? null : JSON.stringify({ error: "Unknown product" }), {
       status: 400,
       headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // For HEAD requests, verification is complete — return 200
+  if (isHead) {
+    return new Response(null, {
+      status: 200,
+      headers: { "Content-Type": "application/zip" },
     });
   }
 
@@ -114,3 +125,7 @@ export async function onRequestGet(context) {
     },
   });
 }
+
+// Handle both GET and HEAD requests
+export const onRequestGet = handleRequest;
+export const onRequestHead = handleRequest;
